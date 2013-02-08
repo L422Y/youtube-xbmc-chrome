@@ -2,7 +2,7 @@
    "background": { "page": "html/background.html" },
    "content_scripts": [ {
       "exclude_globs": [ ],
-      "include_globs": [ "*" ],
+      "include_globs": [ "*youtube*" ],
       "css": [
           "/css/content.css"
       ],

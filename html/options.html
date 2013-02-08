@@ -5,22 +5,35 @@
 </head>
 <body>
 <div id="wrapper">
-    <b>Enter the connections details</b>
-    <br><br>
-    Please set the XBMC Host(s) in label|username:password@host:port format, one per line:<br>
-    <textarea id="xbmc_hosts" size="40" name="xbmc_hosts"></textarea><br>
-    Please set the XBMC Path. Default: (plugin.video.youtube)<br/>
-    <input id="xbmc_youtube_path" type="text" size="40" name="xbmc_youtube_path"><br>
-    Please set the selectors and type to insert the XBMC button into. Default: "watch7-video|watch"<br/>
-    <textarea id="xbmc_hooks" size="40" name="xbmc_hooks"></textarea><br>
-    <div>
-        Valid "types" are: "watch", "thumb", and "playlist"
-    </div>
+    <fieldset>
+        <legend>XBMC Hosts</legend>
+        Please set the XBMC Host(s) in label|username:password@host:port format, one per line:<br>
+        <textarea id="xbmc_hosts" size="40" name="xbmc_hosts"></textarea><br>
+        <button class="defaults" for="xbmc_hosts">Reset Defaults</button>
+    </fieldset>
+
+    <fieldset>
+        <legend>XBMC plugin path</legend>
+        Please set the XBMC Path. Default: (plugin.video.youtube)<br/>
+        <input id="xbmc_youtube_path" type="text" size="40" name="xbmc_youtube_path"><br>
+        <button class="defaults" for="xbmc_youtube_path">Reset Defaults</button>
+    </fieldset>
+
+    <fieldset>
+        <legend>Insertion Selectors</legend>
+        Please set the selectors and type to insert the XBMC button into.<br/>
+        <textarea id="xbmc_hooks" size="40" name="xbmc_hooks"></textarea><br>
+        <button class="defaults" for="xbmc_hooks">Reset Defaults</button>
+        <div>
+            Valid "types" are: "player", "thumb", and "playlist"
+        </div>
+    </fieldset>
     <br>
 
     <button id="savebtn" class="savebtn">Save</button>
     <span id="status"></span>
 </div>
 </body>
+<script type="text/javascript" src="/js/jquery-1.9.1.min.js"></script>
 <script type="text/javascript" src="/js/options.js"></script>
 </html>

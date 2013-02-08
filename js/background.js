@@ -38,6 +38,10 @@ chrome.extension.onRequest.addListener(function (request, sender, sendResponse) 
             _settings.path = window.localStorage["xbmc_youtube_path"];
         }
 
+        /** LOAD TEMPLATES **/
+
+
+        // hosts insert, used in other templates
         var _hosts_insert = "";
         $.ajax({
             url: '/templates/hosts.html',
@@ -56,7 +60,8 @@ chrome.extension.onRequest.addListener(function (request, sender, sendResponse) 
         });
         _settings.templates['hosts'] = _hosts_insert;
 
-        $(['watch.html','thumb.html']).each(function (index,value) {
+        // other templates
+        $(['watch.html','thumb.html','playlist.html']).each(function (index,value) {
             $.ajax({
                 async: false,
                 url: '/templates/' + value,

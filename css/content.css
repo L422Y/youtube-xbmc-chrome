@@ -1,3 +1,10 @@
+.destinations div {
+    cursor: pointer;
+}
+.destinations div:hover {
+    background: #888;
+}
+
 .xbmc_insert_watch {
     width: 640px;
     background: #333;
@@ -21,22 +28,38 @@
     display: inline-block;
 }
 
-
+.xbmc_host { overflow: visible !important;}
 
 .xbmc_insert_thumb {
-    display: inline;
+    position: absolute;
+    z-index: 10;
+    display: block;
+    width: 100%;
+    opacity: 0;
+    min-height: 20px;
+    bottom:-20px;
+    box-sizing: content-box;
+    -webkit-transition: opacity 0.2s;
 }
 .xbmc_insert_thumb .destinations {
     display: none;
+    background: #222222;
 }
 
+.xbmc_host:hover .xbmc_insert_thumb {
+    opacity:1;
+
+}
 .xbmc_host:hover .xbmc_insert_thumb .destinations {
-    display: inline-block;
+    display: block;
+    position: relative;
 }
 
 .xbmc_insert_thumb .destinations div {
+
     padding: 2px;
     background: rgba(0,0,0,0.5);
     color: #ffffff;
     display: inline-block;
+    margin:2px;
 }

@@ -1,40 +1,41 @@
 // Saves options to localStorage.
-function save_options() {
-    window.localStorage["xbmc_hosts"] = document.getElementById("xbmc_hosts").value;
-    window.localStorage["xbmc_youtube_path"] = document.getElementById("xbmc_youtube_path").value;
-    window.localStorage["xbmc_hooks"] = document.getElementById("xbmc_hooks").value;
 
-    // Update status to let user know options were saved.
-    var status = document.getElementById("status");
-    status.innerHTML = "Saved.";
-    setTimeout(function () {status.innerHTML = "";}, 1500);
+var _xby_fields = {
+    "xbmc_hosts":"label|username:password@localhost:8080",
+    "xbmc_youtube_path":"plugin.video.youtube",
+    "xbmc_hooks":".yt-pl-thumb|playlist\n#watch7-player|player\n.ux-thumb-wrap|thumb"
 }
 
-// Restores select box state to saved value from localStorage.
+function save_options() {
+    // iterate fields, updating each localstorage store with form data
+    $.each(_xby_fields, function (id, val) {
+        window.localStorage[id] = document.getElementById(id).value;
+    });
+    $('#status').html("Saved.").show().delay(1500).fadeOut();
+}
+
 function restore_options() {
-    var defualts = "";
-    if (window.localStorage["xbmc_hosts"]) {
-        document.getElementById("xbmc_hosts").value = window.localStorage["xbmc_hosts"];
-    } else {
-        document.getElementById("xbmc_hosts").value = "label|username:password@localhost:8080";
-    }
+    // iterate fields, updating each form field with localstorage data OR defaults (from field object)
+    $.each(_xby_fields, function (id, val) {
+        if (window.localStorage[id]) {
+            document.getElementById(id).value = window.localStorage[id];
+        } else {
+            set_defaults(id, true);
+        }
+    });
+}
 
-    if (window.localStorage["xbmc_youtube_path"]) {
-        document.getElementById("xbmc_youtube_path").value = window.localStorage["xbmc_youtube_path"];
-    } else {
-        document.getElementById("xbmc_youtube_path").value = "plugin.video.youtube";
-    }
-
-    if (window.localStorage["xbmc_hooks"]) {
-        document.getElementById("xbmc_hooks").value = window.localStorage["xbmc_hooks"];
-    } else {
-        defaults = "#watch7-player|watch\n.ux-thumb-wrap|thumb";
-        document.getElementById("xbmc_hooks").value = defaults;
-    }
-
+function set_defaults(id, force) {
+    if (!force) if (!confirm("Set defaults for '" + id + "'?")) return;
+    document.getElementById(id).value = _xby_fields[id];
 }
 
 // do restore, bind to events
 restore_options();
-document.getElementById('savebtn').onclick = save_options;
+$('#savebtn').click(save_options);
+$('button.defaults').click(function (ev) {
+    var parent = $(this).attr('for');
+    set_defaults(parent);
+    ev.preventDefault();
+});
 
