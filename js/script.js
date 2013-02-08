@@ -4,6 +4,7 @@
 // http://userscripts.org/scripts/show/92945 (by deepseth)
 // http://userscripts.org/scripts/show/62064 (by Wolph)
 
+
 var _xby = null;
 var xbmc_youtube = {
     path:"plugin.video.youtube",
@@ -21,6 +22,7 @@ var xbmc_youtube = {
         ".ux-thumb-wrap":{ type:'thumb' }
     },
     autoplay:false,
+
     /** ID FINDER FUNCTIONS **/
     finders:{
         location:function (element, hook, hook_type) {
@@ -70,6 +72,19 @@ var xbmc_youtube = {
         _xby = xbmc_youtube;
         _xby.log('initializing...');
         _xby.load(_xby.run);
+        _xby.player_ready();
+    },
+    player:null,
+    player_check: null,
+    player_paused:false,
+    player_ready:function (id) {
+        _xby.player_bind();
+        _xby.log('player ready...');
+    },
+    player_bind:function () {
+        if ((_xby.player = document.getElementById('movie_player')) != null) {
+            _xby.log('bound to player');
+        }
     },
     load:function (_callback) {
         chrome.extension.sendRequest({ type:"_settings" },
@@ -88,10 +103,10 @@ var xbmc_youtube = {
         var host = $(this).data('host');
         var item_id = $(this).data('itemid');
         var item_type = $(this).data('itemtype');
-        _xby.log("handleclick:"+item_id+":"+item_type)
+        _xby.log("handleclick:" + item_id + ":" + item_type)
         if (item_id != null) {
-            if(item_type === "video") _xby.commands.play_video(host, item_id);
-            if(item_type === "playlist") _xby.commands.play_playlist(host, item_id);
+            if (item_type === "video") _xby.commands.play_video(host, item_id);
+            if (item_type === "playlist") _xby.commands.play_playlist(host, item_id);
             ev.preventDefault();
         }
     },
@@ -162,4 +177,5 @@ var xbmc_youtube = {
 
 
 xbmc_youtube.initialize();
+
 

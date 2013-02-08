@@ -37,7 +37,7 @@
     width: 100%;
     opacity: 0;
     min-height: 20px;
-    bottom:-20px;
+    top:0;
     box-sizing: content-box;
     -webkit-transition: opacity 0.2s;
 }
@@ -62,4 +62,10 @@
     color: #ffffff;
     display: inline-block;
     margin:2px;
+}
+
+
+#watch-related .xbmc_insert_thumb {
+    bottom: auto;
+    top: 0;
 }
