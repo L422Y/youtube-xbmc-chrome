@@ -13,3 +13,29 @@
 3. Enable "Developer mode"
 4. Click on "Load unpacked extension"
 5. Point to above cloned folder.
+
+
+## Settings
+
+Make sure you have XBMC's web UI running, and the port setup correctly.
+
+### XBMC Hosts
+List of XBMC Host(s) URIs in label|username:password@host:port format, one per line:
+
+    lil|xbmc:@openelec.local:8080
+    media|xbmc:@media-pc.local:8080
+
+
+### XBMC plugin path
+Path to the XBMC youtube plugin
+
+    plugin.video.youtube
+
+### Insertion Selectors
+These are where the extension looks to insert the links for sending the items to your XBMC hosts.
+One per line, Valid "types" are: "player", "thumb", and "playlist"
+
+    .yt-pl-thumb|playlist
+    #watch7-player|player
+    .ux-thumb-wrap|thumb
+
