@@ -1,0 +1,42 @@
+.xbmc_insert_watch {
+    width: 640px;
+    background: #333;
+    padding: 4px;
+    box-sizing: border-box;
+    color: #eeeeee;
+}
+
+.xbmc_insert_watch .send_to label {
+    text-transform: uppercase;
+    background: #222222;
+    padding: 10px;
+}
+
+.xbmc_insert_watch .destinations {
+    display: inline-block;
+}
+
+.xbmc_insert_watch .destinations div {
+    padding: 10px;
+    display: inline-block;
+}
+
+
+
+.xbmc_insert_thumb {
+    display: inline;
+}
+.xbmc_insert_thumb .destinations {
+    display: none;
+}
+
+.xbmc_host:hover .xbmc_insert_thumb .destinations {
+    display: inline-block;
+}
+
+.xbmc_insert_thumb .destinations div {
+    padding: 2px;
+    background: rgba(0,0,0,0.5);
+    color: #ffffff;
+    display: inline-block;
+}
