@@ -52,8 +52,8 @@ chrome.extension.onRequest.addListener(function (request, sender, sendResponse) 
                 $.each(_settings.hosts, function (label, host) {
                     _hosts_insert +=
                         data
-                            .replace("##host##", host)
-                            .replace("##label##", label)
+                            .replace(/##host##/g, host)
+                            .replace(/##label##/g, label)
                     ;
                 });
             }
@@ -66,7 +66,7 @@ chrome.extension.onRequest.addListener(function (request, sender, sendResponse) 
                 async: false,
                 url: '/templates/' + value,
                 success: function (data) {
-                    _settings.templates[value] = data.replace('##hosts##',_hosts_insert);
+                    _settings.templates[value] = data.replace(/##hosts##/g,_hosts_insert);
                 }
             });
         });
