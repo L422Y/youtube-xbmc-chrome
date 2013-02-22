@@ -33,13 +33,13 @@ var xbmc_youtube = {
         },
         thumb: function (element, hook, hook_type) {
             var _r = $(element).closest('[href]').attr('href').split('v=')[1];
-            if (_r.indexOf('&') > -1) _r = _r.split('&')[0];
+            if (_r && _r.indexOf('&') > -1) _r = _r.split('&')[0];
             return _r;
 
         },
         playlist: function (element, hook, hook_type) {
             var _r = $(element).closest('[href]').attr('href').split('list=')[1].split("&")[0];
-            if (_r.indexOf('&') > -1) _r = _r.split('&')[0];
+            if (_r && _r.indexOf('&') > -1) _r = _r.split('&')[0];
             return _r;
         }
 
