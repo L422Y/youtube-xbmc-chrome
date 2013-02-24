@@ -3,8 +3,8 @@
 var _xby_fields = {
     "xbmc_hosts":"label|username:password@localhost:8080",
     "xbmc_youtube_path":"plugin.video.youtube",
-    "xbmc_hooks":".yt-pl-thumb|playlist\n#watch7-player|player\n.ux-thumb-wrap|thumb"
-}
+    "xbmc_hooks":".yt-pl-thumb|playlist\n#watch7-player|player\n.ux-thumb-wrap|thumb\niframe[src*='youtube.com\/embed']|iframe"
+};
 
 function save_options() {
     // iterate fields, updating each localstorage store with form data

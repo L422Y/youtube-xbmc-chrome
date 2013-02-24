@@ -4,8 +4,14 @@
     },
     "content_scripts":[
         {
-            "exclude_globs":[ ],
-            "include_globs":[ "*youtube*" ],
+            "exclude_globs":[ "*ad.doubleclick.net*",
+                "*facebook.com/connect*",
+                "*facebook.com/dialog*",
+                "*facebook.com/plugins*",
+                "*plusone.google.com*",
+                "*api.gawker.com*"
+            ],
+            "include_globs":[  ],
             "all_frames":false,
             "css":[
                 "/css/content.css"
@@ -16,7 +22,7 @@
                 "/js/script.js"
             ],
             "matches":[ "http://*/*", "https://*/*" ],
-            "run_at":"document_end"
+            "run_at":"document_idle"
         }
     ],
     "permissions":[

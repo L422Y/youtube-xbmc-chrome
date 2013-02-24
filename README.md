@@ -33,9 +33,10 @@ Path to the XBMC youtube plugin
 
 ### Insertion Selectors
 These are where the extension looks to insert the links for sending the items to your XBMC hosts.
-One per line, Valid "types" are: "player", "thumb", and "playlist"
+One per line, Valid "types" are: "player", "thumb", "iframe" and "playlist"
 
     .yt-pl-thumb|playlist
     #watch7-player|player
     .ux-thumb-wrap|thumb
+    iframe[src*='youtube.com\/embed']|iframe
 
