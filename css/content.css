@@ -11,6 +11,7 @@
     padding: 4px;
     box-sizing: border-box;
     color: #eeeeee;
+    text-align: left;
 }
 
 .xbmc_insert_watch .send_to label {
