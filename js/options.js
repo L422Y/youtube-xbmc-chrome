@@ -3,7 +3,7 @@
 var _xby_fields = {
     "xbmc_hosts":"label|username:password@localhost:8080",
     "xbmc_youtube_path":"plugin.video.youtube",
-    "xbmc_hooks":".yt-pl-thumb|playlist\n#watch7-player|player\n.ux-thumb-wrap|thumb\niframe[src*='youtube.com\/embed']|iframe"
+    "xbmc_hooks":".yt-pl-thumb|playlist\n#watch7-player|player\n.ux-thumb-wrap|thumb\niframe[src*='youtube.com\/embed']|iframe\n#player-api|player"
 };
 
 function save_options() {
